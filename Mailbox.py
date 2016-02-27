@@ -18,3 +18,8 @@ if pushes:
 
 #Push notification to all devices connected to key
 push = pb.push_note(title, msg)
+
+#TODO: Save how many and at what time each package arrived
+#TODO: After 5 packages delivered, send logistic summary notification
+#TODO: Implement this script into execution loop, activated when laser tripped
+
