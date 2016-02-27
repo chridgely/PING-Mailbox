@@ -1,0 +1,12 @@
+The Mailbox.py code is dependent upon the pushbullet.py software package.
+To install this on Unix Systems type the following:
+
+  sudo pip pushbullet.py
+
+This will install pushbullet and all its dependencies to:
+  /usr/local/lib/python2.7/dist-packages
+
+The documentation for how to use the pushbullet dist is located at:
+  github.com/randomchars/pushbullet.py
+
+
