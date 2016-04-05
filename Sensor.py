@@ -3,7 +3,12 @@
 #Sensor test program
 
 import spidev
+from Mailbox import pushMsg
 from time import sleep
+
+#Variables
+tol = 30
+package = False
 
 #Establish SPI device on Bus 0, Device 0
 spi = spidev.SpiDev()
@@ -23,7 +28,14 @@ def getAdc (channel):
 	
 	#print out 0-1023 value and percentage
 	print("ADC Output: {0:4d}	Percentage: {1:3}%".format (adcOut,percent))
-	sleep(0.1)
+	sleep(5)
+	return percent
 
 while True:
-	getAdc(0)
+	if getAdc(0) > 30:
+		if package == False:
+			package = True
+			pushMsg()
+	else:
+		package = False 
+	
