@@ -9,4 +9,8 @@ This will install pushbullet and all its dependencies to:
 The documentation for how to use the pushbullet dist is located at:
   github.com/randomchars/pushbullet.py
 
+The sensor module is dependent upon the use of an analog converter. 
+To install functionality onto the Raspberry Pi, follow the SPI instructions on the following url:
+  http://www.instructables.com/id/Wiring-up-a-MCP3008-ADC-to-a-Raspberry-Pi-model-B-/?ALLSTEPS
+
 
