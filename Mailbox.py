@@ -5,11 +5,11 @@ from time import strftime
 #Set all variables here
 pb = Pushbullet("o.YZqCGqReW0YkjrA7iPJCenRJUIpUPAMM")
 title = "Mailbox Alert"
-msg = "You have received a package on %s" %(time)
 
 def pushMsg():
 	#Set time
 	time = strftime ("%a %I:%M%p")
+	msg = "You have received a package on %s" %(time)	
 
         #Clear any previous push notifications
         #Pushbullet will resend if not done
