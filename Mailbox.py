@@ -3,21 +3,25 @@ from pushbullet import Pushbullet
 from time import strftime
 
 #Set all variables here
-pb = Pushbullet("o.YZqCGqReW0YkjrA7iPJCenRJUIpUPAMM")
+apiKey = "o.fdUi5rBICoNHmCf02ANsN5evuPvmZJDv"
 title = "Mailbox Alert"
 
 def pushMsg():
+
+	pb = Pushbullet(apiKey)
+
 	#Set time
 	time = strftime ("%a %I:%M%p")
 	msg = "You have received a package on %s" %(time)	
 
         #Clear any previous push notifications
         #Pushbullet will resend if not done
-        pushes = pb.get_pushes()
+       # pushes = pb.get_pushes()
        # if pushes:
-        latest = pushes[0]
-        pb.dismiss_push(latest.get("iden"))
-        pb.delete_push(latest.get("iden"))
+       # latest = pushes[0]
+       # pb.dismiss_push(latest.get("iden"))
+       # pb.delete_push(latest.get("iden"))
+	pushes = pb.delete_pushes()
 
         #Push notification to all devices connected to key
         push = pb.push_note(title, msg)
