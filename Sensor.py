@@ -3,7 +3,7 @@
 #Sensor test program
 
 import spidev
-from Mailbox import pushMsg
+import Mailbox
 from time import sleep
 
 #Variables
@@ -28,14 +28,14 @@ def getAdc (channel):
 	
 	#print out 0-1023 value and percentage
 	print("ADC Output: {0:4d}	Percentage: {1:3}%".format (adcOut,percent))
-	sleep(5)
+	sleep(.08)
 	return percent
 
 while True:
-	if getAdc(0) > 30:
+	if getAdc(0) > 39:
 		if package == False:
 			package = True
-			pushMsg()
+			Mailbox.pushMsg()
 	else:
 		package = False 
 	
