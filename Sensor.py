@@ -7,12 +7,15 @@ import Mailbox
 from time import sleep
 
 #Variables
-tol = 30
+tol = 39
 package = False
+msgCountThreshold = 5
+msgCount = 0
 
 #Establish SPI device on Bus 0, Device 0
 spi = spidev.SpiDev()
 spi.open(0,0)
+
 
 def getAdc (channel):
 	#check valid
@@ -37,5 +40,5 @@ while True:
 			package = True
 			Mailbox.pushMsg()
 	else:
-		package = False 
+		package = False	 
 	
