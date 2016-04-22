@@ -1,16 +1,22 @@
-The Mailbox.py code is dependent upon the pushbullet.py software package.
-To install this on Unix Systems type the following:
+The PING Mailbox is built to run on Raspbian Jessie
 
-  sudo pip install pushbullet.py
+The sensor module is dependent upon the use of an analog converter and must have the SPI controls of the Pi activated
+SPI can be activated by performing the following steps:
+	-Type <sudo raspi-config> into command line
+	-Scroll down to 'Advanced Options' and enable SPI
+	-Type <sudo reboot> into command line
 
-This will install pushbullet and all its dependencies to:
-  /usr/local/lib/python2.7/dist-packages
+In order to run the PING Mail service from startup perform the following steps:
+	-Type <sudo crontab -e> into command line
+	-If prompted to select editing environment, select [2] for the purpose of this instruction
+	-Scroll to the end of the file and enter <@reboot /home/pi/PING-Mailbox/run.sh>
+	-<CTRL-X>, enter <y> and press enter again to write and exit
+	
+The bash script <run.sh> is used to run the Mailbox Service and can be executed in the terminal to allow for debugging
 
-The documentation for how to use the pushbullet dist is located at:
-  github.com/randomchars/pushbullet.py
-
-The sensor module is dependent upon the use of an analog converter. 
-To install functionality onto the Raspberry Pi, follow the SPI instructions on the following url:
-  http://www.instructables.com/id/Wiring-up-a-MCP3008-ADC-to-a-Raspberry-Pi-model-B-/?ALLSTEPS
-
-
+In order to kill the PING Mail service perform the following steps:
+	-Type <ps -aux> in the command line
+	-Locate the line which has the path directory of 'PING-Mailbox'
+	-Record the process id located in the second coloumn
+	-Type <sudo kill 'process id'>, replacing 'process id' with the recorded number from above
+ 
