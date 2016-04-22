@@ -42,6 +42,7 @@ while True:
 			msgCount += 1
 			if msgCount > msgTol:
 				Mailbox.pushSummary()
+				msgCount = 0
 	else:
 		package = False	 
 	

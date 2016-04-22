@@ -11,11 +11,12 @@ class pingTracker(object):
 	friday = 0
 	saturday = 0
 	sunday = 0
+	totalParcels = 0
 
 	#Following code will increment each day count by 1
 	def addToSunday(self):
-		pingTracker.sunday += 1
-	
+		pingTracker.sunday += 1	
+
 	def addToMonday(self):
 		pingTracker.monday += 1
 	
@@ -44,6 +45,7 @@ class pingTracker(object):
 		pingTracker.friday = 0
 		pingTracker.saturday = 0
 		pingTracker.sunday = 0
+		pingTracker.totalParcels = 0
 	
 	def statMostDay(self):
 		mostDay = " "
@@ -72,8 +74,9 @@ class pingTracker(object):
 			mostDay = "Sunday"
 	
 		#Linguistical Sysntax is important too!!!
+		pingTracker.totalParcels = pingTracker.monday + pingTracker.tuesday + pingTracker.wednesday + pingTracker.thursday + pingTracker.friday + pingTracker.saturday + pingTracker.sunday
 		if mostNum > 1: 
-			return "You have recieved the majority of your packages on %s, a total of %d packages" % (mostDay, mostNum)
+			return "You have recieved the majority of your packages on %s, a total of %d out of %d packages" % (mostDay, mostNum, pingTracker.totalParcels)
 		else:
-			return 	"Of your most recent recieved packages, you have recieved them each on different days"
+			return 	"Of your %d most recent recieved packages, you have recieved them each on different days" % (pingTracker.totalParcels)
 	
