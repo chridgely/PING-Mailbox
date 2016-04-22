@@ -9,7 +9,7 @@ from time import sleep
 #Variables
 tol = 39
 package = False
-msgCountThreshold = 5
+msgTol = 5
 msgCount = 0
 
 #Establish SPI device on Bus 0, Device 0
@@ -39,6 +39,9 @@ while True:
 		if package == False:
 			package = True
 			Mailbox.pushMsg()
+			msgCount += 1
+			if msgCount > msgTol:
+				Mailbox.pushSummary()
 	else:
 		package = False	 
 	
