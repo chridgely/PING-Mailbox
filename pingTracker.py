@@ -33,7 +33,7 @@ class pingTracker(object):
 		pingTracker.friday += 1
 	
 	def addToSaturday(self):
-		pingTrackersaturday += 1
+		pingTracker.saturday += 1
 	
 	#Reset day stats to zero
 	#To be called after summary msg is pushed
