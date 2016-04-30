@@ -35,7 +35,7 @@ def getAdc (channel):
 	return percent
 
 while True:
-	if getAdc(0) > 42:
+	if getAdc(0) >= 47:
 		if package == False:
 			package = True
 			Mailbox.pushMsg()
